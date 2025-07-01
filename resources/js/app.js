@@ -15,6 +15,16 @@ import PageTitleSection from '@/components/PageTitleSection.vue';
 import { useColorMode } from '@vueuse/core';
 import { useThemePreset } from '@/composables/useThemePreset';
 
+import 'primeflex/primeflex.css';
+import { createPinia } from 'pinia'
+
+// tras los imports de PrimeVue en resources/js/app.js
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Button from 'primevue/button';
+
+
+
 // Site light/dark mode
 const colorMode = useColorMode({ emitAuto: true });
 
@@ -33,10 +43,10 @@ createInertiaApp({
             import.meta.glob('./pages/**/*.vue')
         ),
     setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
+        return createApp({ render: () => h(App, props) })            
             .provide('colorMode', colorMode)
             .use(plugin)
-            .use(ZiggyVue, Ziggy)
+            .use(ZiggyVue, Ziggy)            
             .use(PrimeVue, {
                 theme: {
                     preset: themePreset,
@@ -54,6 +64,9 @@ createInertiaApp({
             .component('InertiaLink', Link)
             .component('Container', Container)
             .component('PageTitleSection', PageTitleSection)
+            .component('DataTable', DataTable)
+            .component('Column', Column)
+            .component('Button', Button)            
             .mount(el);
     },
     progress: {

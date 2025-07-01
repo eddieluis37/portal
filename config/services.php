@@ -35,4 +35,17 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Remote Products API 
+    |--------------------------------------------------------------------------
+    |
+    | Aquí definimos la URL base y la API key que leerá App ERP desde su .env.
+    |
+    */
+    'remote_products' => [
+        'base_uri' => env('APP_A_URL', 'http://10mega.test'),
+        'api_key'  => env('APP_A_API_KEY'),
+    ],
+
 ];
